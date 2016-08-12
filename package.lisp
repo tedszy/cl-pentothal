@@ -1,4 +1,5 @@
 (defpackage #:cl-pentothal
   (:use #:cl)
-  (:export #:test
+  (:export #:init-testing 
+	   #:test
 	   #:run-tests))

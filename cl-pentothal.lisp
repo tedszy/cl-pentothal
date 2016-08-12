@@ -4,6 +4,9 @@
 (defparameter *failed* nil)
 (defparameter *results* nil)
 
+(defun init-testing ()
+  (setf *results* nil))
+
 (defmacro test (name function-form comparison expected)
   `(progn 
      (push (list ',name 
