@@ -32,7 +32,9 @@
   (format t "~&failed: ~a" *failed*)
   'done)
 
-;; example
+;; example. 
+
+#| 
 
 (test barf (+ 1 1 1) = 3)
 (test merlin (+ 1 1 1) = 4)
@@ -52,3 +54,5 @@
 ;; passed: 4
 ;; failed: 1
 ;; DONE
+
+|#
