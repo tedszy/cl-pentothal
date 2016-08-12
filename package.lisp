@@ -1,3 +1,6 @@
 (defpackage #:cl-pentothal
   (:use #:cl)
-  (:export #:nothing-yet))
+  (:export #:test-me
+	   #:run-tests
+	   #:*passed*
+	   #:*failed*))
