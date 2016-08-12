@@ -19,7 +19,7 @@
 				    ,function-form
 				    ,expected
 				    ',function-form)))))
-	       *results*))
+	 *results*))
 
 (defun run-tests ()
   (setf *passed* 0)
@@ -30,12 +30,7 @@
   (format t "~&failed: ~a" *failed*)
   'done)
 
-
 ;; example
-
-;; change to format like
-;; (add-test foo (+ 1 1 1) = 3)
-
 
 (test barf (+ 1 1 1) = 3)
 (test merlin (+ 1 1 1) = 4)
@@ -45,3 +40,13 @@
       (make-array 3 :initial-contents '(1 2 3)) 
       equalp 
       #(1 2 3))
+
+;; CL-PENTOTHAL> (run-tests)
+;; ok: BARF
+;; NOT OK: MERLIN ==> got 3, expected 4 in (+ 1 1 1)
+;; ok: QUEEQUEG
+;; ok: ZARF
+;; ok: ZOO
+;; passed: 4
+;; failed: 1
+;; DONE
