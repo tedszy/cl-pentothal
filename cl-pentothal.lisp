@@ -18,7 +18,7 @@
 			      (format t "ok: ~a~%" ',name))
 		       (progn (incf *failed*)
 			      (format t
-				      "NOT OK: ~a ==> got ~a, expected ~a in ~a~%"
+				      "NOT OK: ~a ==> got ~a, expected ~a from ~a~%"
 				      ',name
 				      ,function-form
 				      ,expected
@@ -33,7 +33,7 @@
        do (funcall (cadr test-pair)))
   (format t "~&passed: ~a" *passed*)
   (format t "~&failed: ~a" *failed*)
-  'done)
+  nil)
 
 ;; example. 
 
