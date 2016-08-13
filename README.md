@@ -47,12 +47,12 @@ Now we are ready to write tests in ```flaming-guava.lisp.```
 
 ##Testing
 
-Some testing systems have innumerable little assertion and checking functions: ```assert-true```, ```assert-less-than```, ```check-equal-in-some-way.``` ```cl-pentothal``` avoids this. Why is that necessary when Common Lisp already has loads of specific equality and comparison functions? We just pass them in to the ```test``` macro. 
+Some testing systems have innumerable little assertion and checking functions: ```assert-true```, ```assert-less-than```, ```check-equal-in-some-way.``` We avoid this. Why is that necessary when Common Lisp already has loads of specific equality and comparison functions? And if that's not enough, write your own. We just pass them in to the ```test``` macro. 
 
 ```common-lisp
 (test descriptive-name function-form comparison expected-result)
 ```
-Descriptive name is just anything you like. It becomes a symbol. Function form is the thing you are testing. One expression that returns a result. You supply the comparison operator. For example, if you want to compare vectors, use ```equalp.`` Then give the expected results. 
+Descriptive name is just anything you like as long as it's a legal symbol name. Function form is the thing you are testing: an expression that returns a result. You supply the comparison operator. For example, if you want to compare vectors, use ```equalp.``` The expected result is what the function form should return if it is working correctly.
 
 Don't forget to initialize testing!
 
