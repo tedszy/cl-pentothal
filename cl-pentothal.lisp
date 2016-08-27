@@ -1,11 +1,17 @@
-(in-package #:cl-pentothal)
+(in-package #:pentothal)
 
 (defparameter *passed* nil)
 (defparameter *failed* nil)
 (defparameter *results* nil)
+(defparameter *groups* nil)
 
 (defun init-testing ()
+  (setf *groups* nil)
   (setf *results* nil))
+
+(defun in-group (group-symbol)
+  (push nil *results*)
+  (push group-symbol *groups*))
 
 (defmacro test (name function-form comparison expected)
   `(progn 
@@ -23,14 +29,21 @@
 				      ,function-form
 				      ,expected
 				      ',function-form)))))
-	   *results*)
+	   (car *results*))
      nil))
 
 (defun run-tests ()
   (setf *passed* 0)
   (setf *failed* 0)
-  (loop for test-pair in (reverse *results*)
-       do (funcall (cadr test-pair)))
+  (loop 
+     for test-pair-group in (reverse *results*)
+     and group in (reverse *groups*)  
+     do
+       (format t "~&~a~%" group)
+       (loop for test-pair in test-pair-group
+	  do 
+	    (format t "   ")
+	    (funcall (cadr test-pair))))
   (format t "~&passed: ~a" *passed*)
   (format t "~&failed: ~a" *failed*)
   nil)
