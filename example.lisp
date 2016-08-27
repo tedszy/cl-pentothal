@@ -1,4 +1,4 @@
-(in-package #:cl-pentothal)
+(in-package #:pentothal)
 
 (init-testing)
 

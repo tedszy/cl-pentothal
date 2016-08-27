@@ -1,5 +1,6 @@
-(defpackage #:cl-pentothal
+(defpackage #:pentothal
   (:use #:cl)
-  (:export #:init-testing 
+  (:export #:init-testing
+	   #:in-group
 	   #:test
 	   #:run-tests))

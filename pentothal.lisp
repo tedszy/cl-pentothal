@@ -39,11 +39,13 @@
      for test-pair-group in (reverse *results*)
      and group in (reverse *groups*)  
      do
+       (terpri)
        (format t "~&~a~%" group)
        (loop for test-pair in test-pair-group
 	  do 
 	    (format t "   ")
 	    (funcall (cadr test-pair))))
+  (terpri)
   (format t "~&passed: ~a" *passed*)
   (format t "~&failed: ~a" *failed*)
   nil)
